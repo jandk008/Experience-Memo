@@ -16,6 +16,8 @@ public class ConnectionExceptionHandleProxy implements MethodInterceptor{
 	private static Logger logger = Logger.getInstance(ConnectionExceptionHandleProxy.class);
 
 	@Override
+	//arg0 是调用函数的对象，在这里即为ServiceExecutor的object对象
+	//arg1 是实体函数的method对象，每一次对函数的调用，都会被捕获到这里
 	public Object intercept(Object arg0, Method arg1, Object[] arg2, MethodProxy arg3) throws Throwable  {
 		
 		CBTLogUtil.log(logger,LogLevel.INFO, "Start to execute "+arg1.getName()+ "....");
